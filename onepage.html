@@ -1,0 +1,36 @@
+<div class="container" ng-controller="FirstController">
+	<h1>Page ONE</h1>
+	<div class="col-lg-3">
+	Name:
+	<br />
+	<input type="text" ng-model="search.name" placeholder="Filter by name..." />
+	<br />
+	</div>
+	<div class="col-lg-3">
+	Friend name:<br />
+	<input type="text" ng-model="newFriend.name" />
+	<br />
+	Friend city:<br />
+	<input type="text" ng-model="newFriend.city" />
+	<br />
+	<button ng-click="addFriend()" type="button" class="btn btn-sm btn-success">+Add friend</button>
+	</div>
+	<table class="table">
+		<thead>
+		  <tr>
+			<th>Name</th>
+			<th>City</th>
+		  </tr>
+		</thead>
+		<tbody>
+		  <tr class="animate" ng-repeat="friend in friends | filter:search:strict | orderBy:'city'">
+			<td>{{ friend.name }}</td>
+			<td>{{ friend.city }}</td>
+		  </tr>
+		</tbody>
+    </table>
+	<br />
+	<a href="#/antras" type="button" class="btn btn-sm btn-primary">Page two ></a>
+
+</div>
+
